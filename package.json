@@ -1,0 +1,15 @@
+{
+  "name": "stockflow-tracker",
+  "version": "1.0.0",
+  "description": "C++ and Node.js Hybrid Inventory & Employee Management Tracker",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}

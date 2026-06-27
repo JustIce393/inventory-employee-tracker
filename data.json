@@ -1,0 +1,371 @@
+{
+    "company": {
+        "name": "StockFlow Solutions Ltd.",
+        "owner": "Radhika Sen",
+        "cash_available": 3954138,
+        "debts": 1200000,
+        "other_assets_value": 800000,
+        "partners": [
+            {
+                "name": "Radhika Sen",
+                "shares": 60
+            },
+            {
+                "name": "Amit Sharma",
+                "shares": 25
+            },
+            {
+                "name": "Vikas Verma",
+                "shares": 15
+            }
+        ]
+    },
+    "employees": [
+        {
+            "id": 1,
+            "name": "Arvind Kumar",
+            "email": "arvind@company.com",
+            "role": "Senior SDE",
+            "department": "Engineering",
+            "joined_date": "2025-01-10",
+            "salary": 120000,
+            "contact_number": "9876543210",
+            "status": "Active"
+        },
+        {
+            "id": 2,
+            "name": "Sneha Patel",
+            "email": "sneha@company.com",
+            "role": "UX Designer",
+            "department": "Product",
+            "joined_date": "2025-03-15",
+            "salary": 85000,
+            "contact_number": "9876543211",
+            "status": "Active"
+        },
+        {
+            "id": 3,
+            "name": "Rohan Sharma",
+            "email": "rohan@company.com",
+            "role": "QA Lead",
+            "department": "Engineering",
+            "joined_date": "2025-06-01",
+            "salary": 95000,
+            "contact_number": "9876543212",
+            "status": "Active"
+        },
+        {
+            "id": 4,
+            "name": "Priya Nair",
+            "email": "priya@company.com",
+            "role": "HR Manager",
+            "department": "Operations",
+            "joined_date": "2025-09-20",
+            "salary": 75000,
+            "contact_number": "9876543213",
+            "status": "Active"
+        }
+    ],
+    "inventory": [
+        {
+            "id": 1,
+            "name": "MacBook Pro M3",
+            "category": "Laptops",
+            "sku": "LAP-MBP-M3-01",
+            "quantity": 7,
+            "threshold": 2,
+            "location": "Cabinet A",
+            "price": 199999,
+            "purchase_price": 139999,
+            "selling_price": 199999,
+            "supplier_name": "Apple India",
+            "supplier_contact": "1800-165-2273",
+            "barcode": "1901901901"
+        },
+        {
+            "id": 2,
+            "name": "Dell UltraSharp 27\"",
+            "category": "Monitors",
+            "sku": "MON-DEL-27-05",
+            "quantity": 12,
+            "threshold": 1,
+            "location": "Storage Room 2",
+            "price": 34999,
+            "purchase_price": 24499,
+            "selling_price": 34999,
+            "supplier_name": "Dell Service",
+            "supplier_contact": "1800-425-4026",
+            "barcode": "2902902902"
+        },
+        {
+            "id": 3,
+            "name": "Keychron K2 Keyboard",
+            "category": "Accessories",
+            "sku": "ACC-KEY-K2-12",
+            "quantity": 0,
+            "threshold": 3,
+            "location": "Cabinet B",
+            "price": 8499,
+            "purchase_price": 5949,
+            "selling_price": 8499,
+            "supplier_name": "Keychron IN",
+            "supplier_contact": "contact@keychron.in",
+            "barcode": "3903903903"
+        },
+        {
+            "id": 4,
+            "name": "iPhone 15 Pro",
+            "category": "Mobile",
+            "sku": "MOB-IPH-15-02",
+            "quantity": 12,
+            "threshold": 1,
+            "location": "Safe Vault",
+            "price": 134900,
+            "purchase_price": 94430,
+            "selling_price": 134900,
+            "supplier_name": "Apple India",
+            "supplier_contact": "1800-165-2273",
+            "barcode": "4904904904"
+        }
+    ],
+    "assignments": [
+        {
+            "id": 1,
+            "employee_id": 1,
+            "inventory_id": 1,
+            "assigned_date": "2025-01-12",
+            "notes": "Serial: C02DF123XYZ"
+        },
+        {
+            "id": 2,
+            "employee_id": 2,
+            "inventory_id": 2,
+            "assigned_date": "2025-03-18",
+            "notes": "Asset ID: MON-987"
+        }
+    ],
+    "logs": [
+        {
+            "id": 1,
+            "action": "LOAD_DEMO",
+            "details": "Initialized database with professional mock demo dataset",
+            "timestamp": "2026-06-25T20:55:20Z"
+        },
+        {
+            "id": 2,
+            "action": "ASSIGN_ITEM",
+            "details": "Assigned MacBook Pro M3 to Arvind Kumar",
+            "timestamp": "2026-06-25T20:55:20Z"
+        },
+        {
+            "id": 3,
+            "action": "ASSIGN_ITEM",
+            "details": "Assigned Dell UltraSharp 27\" to Sneha Patel",
+            "timestamp": "2026-06-25T20:55:20Z"
+        },
+        {
+            "id": 4,
+            "action": "FINANCE_TRANSACTION",
+            "details": "Deducted ₹24499.000000 for restocking Dell UltraSharp 27\" (+1 units)",
+            "timestamp": "2026-06-25T21:35:18Z"
+        },
+        {
+            "id": 5,
+            "action": "UPDATE_QUANTITY",
+            "details": "Adjusted quantity of Dell UltraSharp 27\" (SKU: MON-DEL-27-05) by +1. New quantity: 5",
+            "timestamp": "2026-06-25T21:35:18Z"
+        },
+        {
+            "id": 6,
+            "action": "FINANCE_TRANSACTION",
+            "details": "Deducted ₹24499.000000 for restocking Dell UltraSharp 27\" (+1 units)",
+            "timestamp": "2026-06-25T21:35:18Z"
+        },
+        {
+            "id": 7,
+            "action": "UPDATE_QUANTITY",
+            "details": "Adjusted quantity of Dell UltraSharp 27\" (SKU: MON-DEL-27-05) by +1. New quantity: 6",
+            "timestamp": "2026-06-25T21:35:18Z"
+        },
+        {
+            "id": 8,
+            "action": "FINANCE_TRANSACTION",
+            "details": "Deducted ₹24499.000000 for restocking Dell UltraSharp 27\" (+1 units)",
+            "timestamp": "2026-06-25T21:35:19Z"
+        },
+        {
+            "id": 9,
+            "action": "UPDATE_QUANTITY",
+            "details": "Adjusted quantity of Dell UltraSharp 27\" (SKU: MON-DEL-27-05) by +1. New quantity: 7",
+            "timestamp": "2026-06-25T21:35:19Z"
+        },
+        {
+            "id": 10,
+            "action": "FINANCE_TRANSACTION",
+            "details": "Deducted ₹24499.000000 for restocking Dell UltraSharp 27\" (+1 units)",
+            "timestamp": "2026-06-25T21:35:19Z"
+        },
+        {
+            "id": 11,
+            "action": "UPDATE_QUANTITY",
+            "details": "Adjusted quantity of Dell UltraSharp 27\" (SKU: MON-DEL-27-05) by +1. New quantity: 8",
+            "timestamp": "2026-06-25T21:35:19Z"
+        },
+        {
+            "id": 12,
+            "action": "FINANCE_TRANSACTION",
+            "details": "Deducted ₹24499.000000 for restocking Dell UltraSharp 27\" (+1 units)",
+            "timestamp": "2026-06-25T21:35:19Z"
+        },
+        {
+            "id": 13,
+            "action": "UPDATE_QUANTITY",
+            "details": "Adjusted quantity of Dell UltraSharp 27\" (SKU: MON-DEL-27-05) by +1. New quantity: 9",
+            "timestamp": "2026-06-25T21:35:19Z"
+        },
+        {
+            "id": 14,
+            "action": "FINANCE_TRANSACTION",
+            "details": "Deducted ₹24499.000000 for restocking Dell UltraSharp 27\" (+1 units)",
+            "timestamp": "2026-06-25T21:35:19Z"
+        },
+        {
+            "id": 15,
+            "action": "UPDATE_QUANTITY",
+            "details": "Adjusted quantity of Dell UltraSharp 27\" (SKU: MON-DEL-27-05) by +1. New quantity: 10",
+            "timestamp": "2026-06-25T21:35:19Z"
+        },
+        {
+            "id": 16,
+            "action": "FINANCE_TRANSACTION",
+            "details": "Deducted ₹24499.000000 for restocking Dell UltraSharp 27\" (+1 units)",
+            "timestamp": "2026-06-25T21:35:19Z"
+        },
+        {
+            "id": 17,
+            "action": "UPDATE_QUANTITY",
+            "details": "Adjusted quantity of Dell UltraSharp 27\" (SKU: MON-DEL-27-05) by +1. New quantity: 11",
+            "timestamp": "2026-06-25T21:35:19Z"
+        },
+        {
+            "id": 18,
+            "action": "FINANCE_TRANSACTION",
+            "details": "Deducted ₹24499.000000 for restocking Dell UltraSharp 27\" (+1 units)",
+            "timestamp": "2026-06-25T21:35:20Z"
+        },
+        {
+            "id": 19,
+            "action": "UPDATE_QUANTITY",
+            "details": "Adjusted quantity of Dell UltraSharp 27\" (SKU: MON-DEL-27-05) by +1. New quantity: 12",
+            "timestamp": "2026-06-25T21:35:20Z"
+        },
+        {
+            "id": 20,
+            "action": "FINANCE_TRANSACTION",
+            "details": "Deducted ₹94430.000000 for restocking iPhone 15 Pro (+1 units)",
+            "timestamp": "2026-06-25T21:35:32Z"
+        },
+        {
+            "id": 21,
+            "action": "UPDATE_QUANTITY",
+            "details": "Adjusted quantity of iPhone 15 Pro (SKU: MOB-IPH-15-02) by +1. New quantity: 4",
+            "timestamp": "2026-06-25T21:35:32Z"
+        },
+        {
+            "id": 22,
+            "action": "FINANCE_TRANSACTION",
+            "details": "Deducted ₹94430.000000 for restocking iPhone 15 Pro (+1 units)",
+            "timestamp": "2026-06-25T21:35:32Z"
+        },
+        {
+            "id": 23,
+            "action": "UPDATE_QUANTITY",
+            "details": "Adjusted quantity of iPhone 15 Pro (SKU: MOB-IPH-15-02) by +1. New quantity: 5",
+            "timestamp": "2026-06-25T21:35:32Z"
+        },
+        {
+            "id": 24,
+            "action": "FINANCE_TRANSACTION",
+            "details": "Deducted ₹94430.000000 for restocking iPhone 15 Pro (+1 units)",
+            "timestamp": "2026-06-25T21:35:32Z"
+        },
+        {
+            "id": 25,
+            "action": "UPDATE_QUANTITY",
+            "details": "Adjusted quantity of iPhone 15 Pro (SKU: MOB-IPH-15-02) by +1. New quantity: 6",
+            "timestamp": "2026-06-25T21:35:32Z"
+        },
+        {
+            "id": 26,
+            "action": "FINANCE_TRANSACTION",
+            "details": "Deducted ₹94430.000000 for restocking iPhone 15 Pro (+1 units)",
+            "timestamp": "2026-06-25T21:35:32Z"
+        },
+        {
+            "id": 27,
+            "action": "UPDATE_QUANTITY",
+            "details": "Adjusted quantity of iPhone 15 Pro (SKU: MOB-IPH-15-02) by +1. New quantity: 7",
+            "timestamp": "2026-06-25T21:35:32Z"
+        },
+        {
+            "id": 28,
+            "action": "FINANCE_TRANSACTION",
+            "details": "Deducted ₹94430.000000 for restocking iPhone 15 Pro (+1 units)",
+            "timestamp": "2026-06-25T21:35:33Z"
+        },
+        {
+            "id": 29,
+            "action": "UPDATE_QUANTITY",
+            "details": "Adjusted quantity of iPhone 15 Pro (SKU: MOB-IPH-15-02) by +1. New quantity: 8",
+            "timestamp": "2026-06-25T21:35:33Z"
+        },
+        {
+            "id": 30,
+            "action": "FINANCE_TRANSACTION",
+            "details": "Deducted ₹94430.000000 for restocking iPhone 15 Pro (+1 units)",
+            "timestamp": "2026-06-25T21:35:33Z"
+        },
+        {
+            "id": 31,
+            "action": "UPDATE_QUANTITY",
+            "details": "Adjusted quantity of iPhone 15 Pro (SKU: MOB-IPH-15-02) by +1. New quantity: 9",
+            "timestamp": "2026-06-25T21:35:33Z"
+        },
+        {
+            "id": 32,
+            "action": "FINANCE_TRANSACTION",
+            "details": "Deducted ₹94430.000000 for restocking iPhone 15 Pro (+1 units)",
+            "timestamp": "2026-06-25T21:35:33Z"
+        },
+        {
+            "id": 33,
+            "action": "UPDATE_QUANTITY",
+            "details": "Adjusted quantity of iPhone 15 Pro (SKU: MOB-IPH-15-02) by +1. New quantity: 10",
+            "timestamp": "2026-06-25T21:35:33Z"
+        },
+        {
+            "id": 34,
+            "action": "FINANCE_TRANSACTION",
+            "details": "Deducted ₹94430.000000 for restocking iPhone 15 Pro (+1 units)",
+            "timestamp": "2026-06-25T21:35:34Z"
+        },
+        {
+            "id": 35,
+            "action": "UPDATE_QUANTITY",
+            "details": "Adjusted quantity of iPhone 15 Pro (SKU: MOB-IPH-15-02) by +1. New quantity: 11",
+            "timestamp": "2026-06-25T21:35:34Z"
+        },
+        {
+            "id": 36,
+            "action": "FINANCE_TRANSACTION",
+            "details": "Deducted ₹94430.000000 for restocking iPhone 15 Pro (+1 units)",
+            "timestamp": "2026-06-25T21:35:34Z"
+        },
+        {
+            "id": 37,
+            "action": "UPDATE_QUANTITY",
+            "details": "Adjusted quantity of iPhone 15 Pro (SKU: MOB-IPH-15-02) by +1. New quantity: 12",
+            "timestamp": "2026-06-25T21:35:34Z"
+        }
+    ]
+}
