@@ -1,7 +1,7 @@
 {
-  "name": "stockflow-tracker",
+  "name": "flow-tracker",
   "version": "1.0.0",
-  "description": "C++ and Node.js Hybrid Inventory & Employee Management Tracker",
+  "description": "Flow — C++ & Node.js Hybrid Inventory & Employee Management Tracker",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"

@@ -100,10 +100,10 @@ async function detectBackendEngine() {
             updateEngineBadge(engineData.engine);
         } else {
             // Standard fallback indicator if endpoint isn't fully updated yet
-            updateEngineBadge("StockFlow Engine");
+            updateEngineBadge("Flow Engine");
         }
     } catch(e) {
-        updateEngineBadge("StockFlow Engine");
+        updateEngineBadge("Flow Engine");
     }
 }
 
@@ -1343,7 +1343,7 @@ document.getElementById('exportInventoryCsvBtn').addEventListener('click', () =>
 document.getElementById('backupDbBtn').addEventListener('click', () => {
     const link = document.createElement("a");
     link.setAttribute("href", "/api/backup");
-    link.setAttribute("download", "stockflow_backup.json");
+    link.setAttribute("download", "flow_backup.json");
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -1512,14 +1512,14 @@ document.addEventListener('DOMContentLoaded', () => {
     // Theme Initializer
     const themeSelector = document.getElementById('themeSelector');
     if (themeSelector) {
-        const savedTheme = localStorage.getItem('stockflow-theme') || 'midnight';
+        const savedTheme = localStorage.getItem('flow-theme') || 'midnight';
         themeSelector.value = savedTheme;
         document.documentElement.setAttribute('data-theme', savedTheme);
 
         themeSelector.addEventListener('change', (e) => {
             const theme = e.target.value;
             document.documentElement.setAttribute('data-theme', theme);
-            localStorage.setItem('stockflow-theme', theme);
+            localStorage.setItem('flow-theme', theme);
             showToast(`Active Theme: ${theme.charAt(0).toUpperCase() + theme.slice(1)}`);
             updateGreeting(); // Dynamic update banner for theme consistency
         });
@@ -1801,7 +1801,7 @@ function checkAuth() {
     const authOverlay = document.getElementById('authOverlay');
     if (!authOverlay) return;
 
-    const session = localStorage.getItem('stockflow-session');
+    const session = localStorage.getItem('flow-session');
     if (session === 'true') {
         authOverlay.style.display = 'none';
     } else {
@@ -1816,7 +1816,7 @@ document.getElementById('authForm').addEventListener('submit', (e) => {
     const correctPwd = localStorage.getItem('stockflow-admin-pwd') || 'admin123';
     
     if (passwordInput === correctPwd) {
-        localStorage.setItem('stockflow-session', 'true');
+        localStorage.setItem('flow-session', 'true');
         showToast("Logged in successfully!");
         document.getElementById('authPassword').value = "";
         checkAuth();
@@ -1827,7 +1827,7 @@ document.getElementById('authForm').addEventListener('submit', (e) => {
 
 // Logout Action
 document.getElementById('logoutBtn').addEventListener('click', () => {
-    localStorage.removeItem('stockflow-session');
+    localStorage.removeItem('flow-session');
     showToast("Logged out successfully.");
     checkAuth();
 });
@@ -1844,7 +1844,7 @@ document.getElementById('changePasswordForm').addEventListener('submit', (e) => 
     const newPwd = document.getElementById('newPassword').value;
     const confirmNew = document.getElementById('confirmNewPassword').value;
 
-    const correctPwd = localStorage.getItem('stockflow-admin-pwd') || 'admin123';
+    const correctPwd = localStorage.getItem('flow-admin-pwd') || 'admin123';
     if (currentPwd !== correctPwd) {
         showToast("Current password is incorrect.", "error");
         return;
@@ -1853,7 +1853,7 @@ document.getElementById('changePasswordForm').addEventListener('submit', (e) => 
         showToast("New passwords do not match.", "error");
         return;
     }
-    localStorage.setItem('stockflow-admin-pwd', newPwd);
+    localStorage.setItem('flow-admin-pwd', newPwd);
     showToast("Password updated successfully!");
     closeModal('changePasswordModal');
     document.getElementById('changePasswordForm').reset();

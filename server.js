@@ -29,13 +29,13 @@ function runEngine(args) {
 
         execFile(cmd, stringArgs, { maxBuffer: 1024 * 1024 * 10 }, (error, stdout, stderr) => {
             if (isFallback) {
-                console.log(`[StockFlow] Running JS Fallback Engine: ${stringArgs.join(' ')}`);
+                console.log(`[Flow] Running JS Fallback Engine: ${stringArgs.join(' ')}`);
             } else {
-                console.log(`[StockFlow] Running Native C++ Engine: ${stringArgs.join(' ')}`);
+                console.log(`[Flow] Running Native C++ Engine: ${stringArgs.join(' ')}`);
             }
 
             if (error) {
-                console.error(`[StockFlow] Execution Error:`, error);
+                console.error(`[Flow] Execution Error:`, error);
                 return reject({ 
                     success: false, 
                     error: error.message, 
@@ -47,7 +47,7 @@ function runEngine(args) {
                 const parsed = JSON.parse(stdout.trim());
                 resolve(parsed);
             } catch (e) {
-                console.error("[StockFlow] Failed to parse JSON stdout:", stdout);
+                console.error("[Flow] Failed to parse JSON stdout:", stdout);
                 reject({ 
                     success: false, 
                     error: "Failed to parse database engine response", 
@@ -420,7 +420,7 @@ app.get('/api/backup', (req, res) => {
     if (!fs.existsSync(dbPath)) {
         return res.status(404).json({ success: false, error: "Database file not found" });
     }
-    res.download(dbPath, 'stockflow_backup.json');
+    res.download(dbPath, 'flow_backup.json');
 });
 
 app.post('/api/restore', (req, res) => {
@@ -439,7 +439,7 @@ app.post('/api/restore', (req, res) => {
 
 app.listen(PORT, () => {
     console.log(`==================================================`);
-    console.log(` StockFlow server is running on http://localhost:${PORT}`);
+    console.log(` Flow server is running on http://localhost:${PORT}`);
     console.log(` C++ backend will be used automatically if compiled`);
     console.log(` Falling back to Javascript engine otherwise`);
     console.log(`==================================================`);
