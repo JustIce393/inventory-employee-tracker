@@ -272,51 +272,7 @@ flow/
 
 ---
 
-## 💡 SDE Interview Q&A
 
-If you list this project on your CV, here are the questions recruiters ask — and how to answer them:
-
----
-
-### Q1: Why did you use C++ alongside Node.js instead of a pure JS stack?
-
-> I wanted to demonstrate a **separation of concerns** between the web layer and the business logic layer. Node.js excels at handling concurrent HTTP requests and I/O asynchronously. C++ excels at deterministic, fast, memory-efficient computation. By decoupling them, I got the scalability of Node's event loop combined with the raw performance of native C++ for the database engine — similar to how databases like Redis or SQLite are written in C/C++ and called from higher-level language servers.
-
----
-
-### Q2: How do Node.js and C++ communicate?
-
-> Via **subprocess execution and stdout redirection** — the same IPC model used by tools like Git or FFmpeg. When an API endpoint is hit, the Express server spawns the compiled engine.exe as a child process using Node's `child_process.execFile`, passing the command and parameters as argv arguments (e.g. `engine.exe assign-item 1 4`). The C++ engine processes the operation and prints serialized JSON to stdout. Node reads that stream, parses the JSON, and sends it as the HTTP response to the browser.
-
----
-
-### Q3: How did you write a JSON parser in C++ without any libraries?
-
-> I implemented a custom tokenizer using basic string operations. The parser scans raw file content to locate keys by searching for `"key"`, then advances past the `:` separator to extract the value — either a quoted string (parsed character-by-character with escape handling) or a numeric token (reading until a structural delimiter like `,`, `}`, or `]`). For arrays, I track brace depth to extract nested objects. This avoids all third-party dependencies and keeps the binary tiny.
-
----
-
-### Q4: How does your database enforce referential integrity?
-
-> Manually in the C++ engine using vector scans. Before deleting an employee, the engine checks the assignments vector for any record where `employee_id` matches. If one is found, the delete is blocked with a validation error. The same applies to inventory items. Before recording a sale, the engine verifies the employee exists, the inventory item exists, and that sufficient stock is available — all with explicit checks before mutating state.
-
----
-
-### Q5: How does the automatic payroll scheduler work?
-
-> The frontend uses `setInterval()` to call the `/api/company/payroll` REST endpoint at a configured interval (15s, 30s, or 60s). The Express server forwards this to the C++ engine's `run-payroll` command, which sums salaries of all Active employees, checks if `cash_available >= total_payroll`, deducts the amount, adds an audit log entry, and saves the updated `data.json`. If cash runs too low, the API returns an error and the frontend automatically disables the scheduler toggle.
-
----
-
-### Q6: How would you scale this to handle thousands of users?
-
-> The current flat-file database has a write bottleneck — `data.json` is fully rewritten on every mutation. To scale:
-> 1. **Add a mutex (read/write lock)** in the C++ engine to prevent file corruption under concurrent writes
-> 2. **Introduce Write-Ahead Logging (WAL)** — write changes to a lightweight log first, merge asynchronously
-> 3. **Replace the flat-file with SQLite** using the C sqlite3 API — it supports concurrent reads, atomic transactions, and indexed queries that reduce lookup from O(N) to O(log N)
-> 4. **Add a caching layer** (e.g. an in-memory hash map) for frequently read entities like employees and inventory lists
-
----
 
 ## 📄 License
 
